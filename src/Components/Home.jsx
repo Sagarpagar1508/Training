@@ -32,8 +32,7 @@ const Styles = {
         margin: '0 140px',
         display: 'flex',
         gap: '10px',
-        margin: '100px'
-
+        // margin: '100px',
     },
     mainSub: {
         padding: '20px',
