@@ -1,0 +1,94 @@
+/* * {
+  padding: 0;
+  margin: 0;
+}
+
+.Link {
+  text-decoration: none;
+  color: white importent;
+}
+
+.courseContainer {
+  padding: 20px;
+  position: relative;
+   border-Radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+courseContainer-right {
+  display: flex;
+}
+
+.icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-Size: 24px;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 220px;
+  margin-top: -60px;
+}
+
+.rating {
+
+  align-items: center;
+}
+
+.rating span {
+  margin-left: 8px;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.icons .fa-heart,
+.icons .fa-share-alt {
+  cursor: pointer;
+}
+
+.progress-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+
+
+
+}
+
+.progress-bar {
+  height: 30px;
+  background-color: #4caf50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease-in-out;
+  border-radius: 25px;
+}
+
+.start-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 20px;
+  display: flex;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+} */
