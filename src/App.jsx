@@ -9,6 +9,7 @@ import TestNav from './Components/TestNav';
 import { BrowserRouter } from 'react-router-dom';
 import TestStart from './Components/TestStart';
 import FirstTest from './Components/FirstTest';
+import SecondPage from './Components/SecondPage';
 
 
 function App() {
@@ -18,12 +19,13 @@ function App() {
 
   return (
     <>
-      <TestNav />
-      <TestStart />
+      {/* <TestNav />
+      <TestStart /> */}
 
       {/* <FirstTest/> */}
+      {/* <SecondPage/> */}
 
-      {/* <Router>
+      <Router>
         <Routes>
 
 
@@ -32,14 +34,14 @@ function App() {
             <Route path='user' element={<UserDashboard />} />
           </Route>
           <Route path="Test" element={<TestNav />}>
-          <Route path="" element={<TestStart />} />
-          <Route path="test1" element={<FirstTest />} />
-        </Route>
-          
+            <Route path="" element={<TestStart />} />
+            <Route path="test0" element={<FirstTest />} />
+          </Route>
+
 
 
         </Routes>
-      </Router> */}
+      </Router>
 
 
     </>

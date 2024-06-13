@@ -44,7 +44,7 @@ const UserDashboard = () => {
                             <div className='text-right d-flex gap-3'>
                                 <p>Completion Status</p>
                                 <ProgressBar now={100} label={`${0}%`} className="mt-2 ml-2" style={{ width: '150px' }} />
-                                <Button variant="primary" onClick={openNewWindow} className='text-color-white mt-2 ml-2 mr-2'>
+                                <Button variant="primary" onClick={openNewWindow} className='text-color-white mt-2 ml-2 mr-2 '>
                                     <p style={{ color: 'white', textDecoration: 'none' }}>Start</p>
                                 </Button>
                             </div>

@@ -29,7 +29,7 @@ const Navbar = () => {
                     <input type="text" placeholder="Search.." style={styles.searchInput} />
                     <button><FaSearch size={'22px'} /></button>
                 </div> */}
-                <div className="d-flex align-items-center searchinput">
+                <div className="d-flex align-items-center searchinput ">
                     <input className='' type="text" placeholder="Search.." style={styles.searchInput} />
                     <i className="fa-solid fa-magnifying-glass icon1"></i>
                 </div>
