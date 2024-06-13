@@ -20,12 +20,19 @@ const TestNav = () => {
             newWindow.focus();
         }
     }
+    function handleQuestion(){
+        const newWindow = window.open(
+            `http://localhost:5173/menuoverview`, // URL to open
+            '_self', // Open in a new tab or window
+            'width=1000,height=1000' // Optional specs: width and height of the new window
+        );
+    }
     function handleGlobal() {
         prompt("This are languge")
     }
     return (
         <>
-            <div className="container-fluid  text-light py-2 " style={{ backgroundColor: 'rgb(0, 0.5 ,101)' }}>
+            <div className="container-fluid  text-light py-2 " style={{ backgroundColor: 'rgb(0, 0.5 ,101)',position:'-webkit-sticky',top:'0',position:'sticky' }}>
                 <div className="row align-items-center">
                     {/* Left side: Heading */}
                     <div className="col text-left">
@@ -39,10 +46,10 @@ const TestNav = () => {
 
                     {/* Right side: Icons */}
                     <div className="col text-right text-light">
-                        <button onClick={handleGlobal}><FaGlobe size={24} className="mx-4" /></button>
-                        <button onClick={homeClick}><FaHome size={24} className="mx-2" /></button>
-                        <FaQuestion size={24} className="mx-2" />
-                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e =>handleClick(e)}>
+                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={handleGlobal}><FaGlobe size={24} className="mx-4" /></button>
+                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={homeClick}><FaHome size={24} className="mx-2" /></button>
+                        <button onClick={handleQuestion}><FaQuestion size={24} className="mx-2" /></button>
+                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => handleClick(e)}>
 
                             <FaArrowLeft size={24} className="mx-2" />
                         </button>

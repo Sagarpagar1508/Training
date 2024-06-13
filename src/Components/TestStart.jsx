@@ -15,6 +15,19 @@ const TestStart = () => {
       newWindow.focus();
     }
   }
+  const secondrowClick = (e) => {
+    const newWindow = window.open(
+      `http://localhost:5173/Test/${e}`, // URL to open
+      '_self', // Open in a new tab or window
+      'width=1000,height=1000' // Optional specs: width and height of the new window
+    );
+
+    // Optional: You can add additional functionality here, like focusing the new window
+    if (newWindow) {
+      newWindow.focus();
+    }
+  }
+
 
 
   const cardData = [
@@ -41,13 +54,13 @@ const TestStart = () => {
   ];
 
   return (
-    <container-fluid className= 'bg-primary border' style={styles.bg}>
-      <Container className='bg-success bg-opacity-10 shadow-none border-0 mt-5 py-2 '>
-        <Row className="mb-4 bg-success bg-opacity-10 shadow-none border-0">
+    <container-fluid className=' border ' style={{position:'absolute'}}>
+      <Container className='bg-primary bg-opacity-10 shadow-none border-0 mt-5 py-2 ' style={{ backgroundColor: 'red' }}>
+        <Row className="mb-4  bg-opacity-10 shadow-none border-0">
           {cardData.slice(0, 3).map((card, index) => (
             <Col key={index} sm={12} md={4} className="mb-3">
-              <Card style={{ height: '50' }} >
-                <Card.Img variant="top" src={card.image} style={{ height: '350' }} />
+              <Card style={{ height: '25%' }} >
+                <Card.Img variant="top" src={card.image} style={{ height: '100px' }} />
                 <Card.Body style={{ backgroundColor: 'black', color: 'white' }}>
                   <Card.Title><button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => handleClick(index)}>{card.title}</button></Card.Title>
                   <Card.Text>Status: {card.status}</Card.Text>
@@ -62,8 +75,8 @@ const TestStart = () => {
               <Card>
                 <Card.Img variant="top" src={card.image} />
                 <Card.Body style={{ backgroundColor: 'black', color: 'white' }}>
-                  <Card.Title>{card.title}</Card.Title>
-                  <Card.Text><button onClick={e => handleClick(index)}> Status: {card.status}</button></Card.Text>
+                  <Card.Title><button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => secondrowClick(index)}>{card.title}</button></Card.Title>
+                  <Card.Text>Status: {card.status}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -77,8 +90,3 @@ const TestStart = () => {
 export default TestStart;
 
 
-const styles = {
-  bg: {
-    backgroundColor: 'red'
-  }
-}

@@ -18,7 +18,7 @@ const FirstTest = () => {
                     <div className="col-7 my-4">
                         <h2 className=' p-2 text-center w-50' style={{ border: '10px solid lightblue' }}>Fund Accounting</h2>
                         <p className='my-5 w-75'>  <span className="fw-bold">Fund Aacounting</span> Specialized accounting system used by non-profits, governments, and other organizations to track resource usage.</p>
-                        <img src='src/assets/test2_img.jpg' alt="Discussion about data privacy" className="img-fluid " style={{ height: '350px', width: '500px', boxShadow: '3px 10px 10px 3px lightblue' }} />
+                        <img src='../src/assets/test2_img.jpg' alt="Discussion about data privacy" className="img-fluid " style={{ height: '350px', width: '500px', boxShadow: '3px 10px 10px 3px lightblue' }} />
                     </div>
                     <div className="col-5 text-light my-5" style={{ backgroundColor: 'rgb(0, 171, 240)', boxShadow: '3px 10px 10px 3px lightblue' }} >
                         <p className='p-3 text-ju75ify'><h5>FUND ACCOUNTING</h5>
