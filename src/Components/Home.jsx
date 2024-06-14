@@ -31,10 +31,9 @@ function Home() {
 
 const Styles = {
     main: {
-        margin: '0 140px',
+        margin: '100px 140px',
         display: 'flex',
         gap: '15px',
-        margin: '100px',
         // backgroundColor: rgb(185, 235, 255)
         
         // boxshadow: '0 6px 20px 0 rgba(0, 0, 0, 0.19)'

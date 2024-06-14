@@ -54,8 +54,8 @@ const TestStart = () => {
   ];
 
   return (
-    <container-fluid className=' border ' style={{position:'absolute'}}>
-      <Container className='bg-primary bg-opacity-10 shadow-none border-0 mt-5 py-2 ' style={{ backgroundColor: 'red' }}>
+    <container-fluid className=' border ' style={{position:'relative'}}>
+      <Container className='bg-primary bg-opacity-10 shadow-none border-0 mt-5 py-2 ' >
         <Row className="mb-4  bg-opacity-10 shadow-none border-0">
           {cardData.slice(0, 3).map((card, index) => (
             <Col key={index} sm={12} md={4} className="mb-3">

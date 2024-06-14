@@ -24,7 +24,7 @@ const UserDashboard = () => {
                     </div>
                     <div className='col-8'>
                         <p>COURSE - SELF PACED</p>
-                        <h5>Privacy and Records Management Awareness for Non-Employees</h5>
+                        <h5>Course1</h5>
                         <p>ATTENDED</p>
 
                         <div className='d-flex align-items-center justify-content-between'>

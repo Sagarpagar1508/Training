@@ -14,6 +14,7 @@ import MenuOverview from './Components/MenuOverview';
 
 
 
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -25,6 +26,8 @@ function App() {
 
       {/* <FirstTest/> */}
       {/* <TestNav/>  */}
+      
+      {/* <Availablechapter/> */}
       {/* <MenuOverview/> */}
       {/* <SecondPage/> */}
     {/* <MenuOverview/> */}
@@ -34,14 +37,15 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Navbar />} >
-            <Route path='' element={<Home />} />
+            <Route path='/' element={<Home />} />
             <Route path='user' element={<UserDashboard />} />
           </Route>
           <Route path="Test" element={<TestNav />}>
             <Route path="" element={<TestStart />} />
             <Route path="test0" element={<FirstTest />} />
-            {/* <Route path="" element={<SecondPage />} /> */}
+            <Route path="second" element={<SecondPage />} />
             <Route path="menuoverview" element={<MenuOverview />} />
+
 
           </Route>
 

@@ -20,19 +20,24 @@ const TestNav = () => {
             newWindow.focus();
         }
     }
-    function handleQuestion(){
+    function handleQuestion() {
         const newWindow = window.open(
-            `http://localhost:5173/menuoverview`, // URL to open
+            `http://localhost:5173/Test/menuoverview`, // URL to open
             '_self', // Open in a new tab or window
             'width=1000,height=1000' // Optional specs: width and height of the new window
         );
     }
-    function handleGlobal() {
-        prompt("This are languge")
+
+    function handlenextPage() {
+        const newWindow = window.open(
+            `http://localhost:5173/Test/second`, // URL to open
+            '_self', // Open in a new tab or window
+            'width=1000,height=1000' // Optional specs: width and height of the new window
+        );
     }
     return (
         <>
-            <div className="container-fluid  text-light py-2 " style={{ backgroundColor: 'rgb(0, 0.5 ,101)',position:'-webkit-sticky',top:'0',position:'sticky' }}>
+            <div className="container-fluid  text-light py-2 " style={{ backgroundColor: 'rgb(0, 0.5 ,101)', top: '0', position: 'sticky' }}>
                 <div className="row align-items-center">
                     {/* Left side: Heading */}
                     <div className="col text-left">
@@ -44,22 +49,46 @@ const TestNav = () => {
                         <span>Page </span>
                     </div>
 
-                    {/* Right side: Icons */}
+
                     <div className="col text-right text-light">
-                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={handleGlobal}><FaGlobe size={24} className="mx-4" /></button>
+                        <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" className='bg-success bg-opacity-10 shadow-none border-0 text-light' ><FaGlobe size={24} className="mx-4" /></button>
                         <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={homeClick}><FaHome size={24} className="mx-2" /></button>
-                        <button onClick={handleQuestion}><FaQuestion size={24} className="mx-2" /></button>
+                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={handleQuestion}><FaQuestion size={24} className="mx-2" /></button>
                         <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => handleClick(e)}>
 
                             <FaArrowLeft size={24} className="mx-2" />
                         </button>
-                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' >
+                        <button onClick={handlenextPage} className='bg-success bg-opacity-10 shadow-none border-0 text-light' >
 
                             <FaArrowRight size={24} className="mx-2" />
                         </button>
                     </div>
                 </div>
 
+            </div>
+
+
+
+
+
+
+            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="staticBackdropLabel">Language</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body ">
+                            <select className='form-control' name="" id="">
+                                <option value="">English</option>
+                                <option value="">Hindi</option>
+                                <option value="">Marathi</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <div style={{ width: '100%' }}>
                 <Outlet />
