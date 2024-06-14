@@ -1,5 +1,5 @@
 import React from 'react'
-import audioFile from 'C:/Users/Avani/Downloads/new project/Training/src/assets/Fund accounting is a.mp3';
+import audioFile from '../assets/Fund.mp3';
 
 const SecondPage = () => {
     return (
@@ -12,18 +12,18 @@ const SecondPage = () => {
                         </div>
                         <div className="col-8 mt-3">
                             <p>Fund accounting is a specialized accounting system used primarily by non-profit organizations, government entities, and other institutions where accountability rather than profitability is the primary focus. Unlike traditional for-profit accounting, which tracks the overall financial performance of a business, fund accounting segregates resources into various funds or accounts to ensure that they are used for their intended purposes. Each fund operates as a separate entity with its own set of financial statements, enabling organizations to track the allocation, use, and balance of financial resources. </p>
+
                             <div className=''>
                                 <audio controls style={{ visibility: 'hidden' }}>
                                     <source src="/assets/Fund_accounting_is_a.mp3" type="audio/mpeg" />
-                                    <source src="/assets/Fund_accounting_is_a.mp3" type="audio/ogg" />
+                                    {/* <source src="/assets/Fund_accounting_is_a.mp3" type="audio/ogg" /> */}
                                 </audio>
                                 <audio controls>
                                     <source src={audioFile} type="audio/mpeg" />
                                     Your browser does not support the audio element.
                                 </audio>
-
-
                             </div>
+
                         </div>
 
                     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import backgroundImage from 'C:/Users/Avani/Downloads/new project/Training/src/assets/background.jpg';
+import backgroundImage from '../assets/background.jpg';
 
 const MenuOverview = () => {
   function handleCancel(e) {
