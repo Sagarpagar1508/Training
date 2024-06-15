@@ -54,13 +54,14 @@ const TestStart = () => {
   ];
 
   return (
-    <container-fluid className=' border ' style={{position:'relative'}}>
-      <Container className='bg-primary bg-opacity-10 shadow-none border-0 mt-5 py-2 ' >
+    <container-fluid  >
+      <div className='' style={{position:'absolute'}}>
+      <Container className=' bg-opacity-10 shadow-none border-0 mt-5 py-2 ' >
         <Row className="mb-4  bg-opacity-10 shadow-none border-0">
           {cardData.slice(0, 3).map((card, index) => (
             <Col key={index} sm={12} md={4} className="mb-3">
-              <Card style={{ height: '25%' }} >
-                <Card.Img variant="top" src={card.image} style={{ height: '100px' }} />
+              <Card style={{ height: '50%' }} >
+                <Card.Img variant="top" src={card.image} style={{ height: '200px' }} />
                 <Card.Body style={{ backgroundColor: 'black', color: 'white' }}>
                   <Card.Title><button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => handleClick(index)}>{card.title}</button></Card.Title>
                   <Card.Text>Status: {card.status}</Card.Text>
@@ -83,6 +84,7 @@ const TestStart = () => {
           ))}
         </Row>
       </Container>
+      </div>
     </container-fluid>
   );
 };

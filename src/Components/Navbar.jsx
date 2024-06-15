@@ -17,7 +17,7 @@ const Navbar = () => {
 
     return (
 
-        <div style={styles.sticky}>
+        <div  style={styles.sticky}>
             <nav style={styles.navbar}>
                 <div style={styles.logo}>{`SELF `}</div>
 
@@ -31,11 +31,20 @@ const Navbar = () => {
                 </div> */}
                 <div className="d-flex align-items-center searchinput ">
                     <input className='' type="text" placeholder="Search.." style={styles.searchInput} />
-                    <i className="fa-solid fa-magnifying-glass icon1"></i>
+                    <i className="fa-solid fa-magnifying-glass icon1" style={{
+                        cursor: 'pointer',
+                        transition: '0.5s ease-in-out'
+                    }}></i>
                 </div>
                 <div>
-                    <CgProfile size={'30px'} />
-                    <FaChevronDown size={'20px'} />
+                    <CgProfile size={'30px'} style={{
+                        cursor: 'pointer',backgroundColor:'white',color:'black',borderRadius:'50%',
+                        transition: '0.5s ease-in-out, '
+                    }} />
+                    <FaChevronDown size={'20px'} style={{
+                        cursor: 'pointer',
+                        transition: '0.5s ease-in-out'
+                    }} />
 
                 </div>
             </nav>
@@ -90,10 +99,12 @@ const styles = {
     logo: {
         fontSize: '24px',
         fontWeight: 'bold',
-        paddingLeft: '130px'
+        paddingLeft: '130px',
+        cursor: 'pointer'
     },
     searchinput: {
         position: 'relative',
+
     },
     icon1: {
         position: 'relative',
@@ -117,7 +128,7 @@ const styles = {
     },
 
     sidebar: {
-        height: '90vh',
+        height: '100vh',
         width: '150px',
         backgroundColor: '#080867',
         color: 'white',

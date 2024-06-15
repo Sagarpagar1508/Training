@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaArrowLeft, FaArrowRight, FaGlobe, FaHome, FaQuestion } from 'react-icons/fa'
 import { Navigate, Outlet } from 'react-router-dom'
+import SecondPage from './Test1pages/SecondPage'
+import Availablechapter from './Test1pages/Availablechapter'
+import FirstTest from './FirstTest'
+import TestStart from './TestStart'
 
 const TestNav = () => {
 
@@ -27,14 +31,24 @@ const TestNav = () => {
             'width=1000,height=1000' // Optional specs: width and height of the new window
         );
     }
+    let [activeTab, setActiveTab] = useState(1);
 
-    function handlenextPage() {
-        const newWindow = window.open(
-            `http://localhost:5173/Test/second`, // URL to open
-            '_self', // Open in a new tab or window
-            'width=1000,height=1000' // Optional specs: width and height of the new window
-        );
-    }
+
+    const renderContent = () => {
+        switch (activeTab) {
+            case 1:
+                return <TestStart />;
+            case 2:
+                return <SecondPage />;
+            case 3:
+                return <Availablechapter />;
+            default:
+                return <FirstTest />;
+        }
+    };
+
+
+
     return (
         <>
             <div className="container-fluid  text-light py-2 " style={{ backgroundColor: 'rgb(0, 0.5 ,101)', top: '0', position: 'sticky' }}>
@@ -46,20 +60,30 @@ const TestNav = () => {
 
                     {/* Center: Page Number */}
                     <div className="col text-center">
-                        <span>Page </span>
+                        <span>Page {activeTab}/3 </span>
                     </div>
 
 
                     <div className="col text-right text-light">
-                        <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" className='bg-success bg-opacity-10 shadow-none border-0 text-light' ><FaGlobe size={24} className="mx-4" /></button>
-                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={homeClick}><FaHome size={24} className="mx-2" /></button>
-                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={handleQuestion}><FaQuestion size={24} className="mx-2" /></button>
-                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => handleClick(e)}>
+                        <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" className='bg-success bg-opacity-10 shadow-none border-0 text-light' >
+                            <FaGlobe size={24} className="mx-4" />
+                        </button>
+
+                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={homeClick}>
+                            <FaHome size={24} className="mx-2" />
+                        </button>
+
+                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={handleQuestion}>
+                            <FaQuestion size={24} className="mx-2" />
+                        </button>
+
+                        <button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => { activeTab > 1 ? setActiveTab(activeTab - 1) : setActiveTab(activeTab = 1) }}>
 
                             <FaArrowLeft size={24} className="mx-2" />
                         </button>
-                        <button onClick={handlenextPage} className='bg-success bg-opacity-10 shadow-none border-0 text-light' >
+                        
 
+                        <button onClick={e => { activeTab < 3 ? setActiveTab(activeTab + 1) : setActiveTab(activeTab = 3) }} className='bg-success bg-opacity-10 shadow-none border-0 text-light' >
                             <FaArrowRight size={24} className="mx-2" />
                         </button>
                     </div>
@@ -79,6 +103,7 @@ const TestNav = () => {
                             <h1 className="modal-title fs-5" id="staticBackdropLabel">Language</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+
                         <div className="modal-body ">
                             <select className='form-control' name="" id="">
                                 <option value="">English</option>
@@ -86,12 +111,11 @@ const TestNav = () => {
                                 <option value="">Marathi</option>
                             </select>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div style={{ width: '100%' }}>
-                <Outlet />
+                {renderContent()}
             </div>
         </>
     )

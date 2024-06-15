@@ -1,22 +1,52 @@
 import React from 'react';
 import { Card, ProgressBar, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
+import Details from './UserDashboard/Details';
+import Activities from './UserDashboard/Activities';
+import SimilarActivities from './UserDashboard/SimilarActivities';
+import { useState } from 'react';
 
 const UserDashboard = () => {
+
+    const [activeTab, setActiveTab] = useState('DETAILS');
+
+    const renderContent = () => {
+        switch (activeTab) {
+            case 'DETAILS':
+                return <Details />;
+            case 'ACTIVITIES':
+                return <Activities />;
+            case 'SIMILAR_ACTIVITIES':
+                return <SimilarActivities />;
+            default:
+                return <Details />;
+        }
+    };
+
+    // const openPPT = () => {
+    //     <a href={'src/assets/file_example_PPT_250kB.ppt'} className='flex justify-between items-center w-full ' download='true' target="_blank" rel='noreferrel'>
+    //     download</a>
+    // }
+
     const openNewWindow = () => {
         const newWindow = window.open(
-          'http://localhost:5173/Test', // URL to open
-          '_blank', // Open in a new tab or window
-          'width=1000,height=1000' // Optional specs: width and height of the new window
+            'http://localhost:5173/Test', // URL to open
+            '_blank', // Open in a new tab or window
+            'width=1000,height=1000' // Optional specs: width and height of the new window
         );
-        
+
         // Optional: You can add additional functionality here, like focusing the new window
         if (newWindow) {
-          newWindow.focus();
-        }
+            newWindow.focus();
+        };
     }
+
+
+
     return (
         <div className='container' >
+
+
             <div className='container border mt-4 ' style={{ backgroundColor: 'rgb(240, 248, 255)' }}>
                 <div className='row mt-2 '>
                     <div className='col-4 text-center border' style={{ backgroundColor: 'white', color: 'black', padding: '50px' }}>
@@ -24,7 +54,7 @@ const UserDashboard = () => {
                     </div>
                     <div className='col-8'>
                         <p>COURSE - SELF PACED</p>
-                        <h5>Course1</h5>
+                        <h5>Indroduction to Fund Accounting</h5>
                         <p>ATTENDED</p>
 
                         <div className='d-flex align-items-center justify-content-between'>
@@ -44,7 +74,7 @@ const UserDashboard = () => {
                             <div className='text-right d-flex gap-3'>
                                 <p>Completion Status</p>
                                 <ProgressBar now={100} label={`${0}%`} className="mt-2 ml-2" style={{ width: '150px' }} />
-                                <Button variant="primary" onClick={openNewWindow} className='text-color-white mt-2 ml-2 mr-2 '>
+                                <Button onClick={openNewWindow} variant="primary" className='text-color-white mt-2 ml-2 mr-2 '>
                                     <p style={{ color: 'white', textDecoration: 'none' }}>Start</p>
                                 </Button>
                             </div>
@@ -59,47 +89,47 @@ const UserDashboard = () => {
                     </div>
                     <div className="col-8">
                         <nav className="nav mb-4 border-bottom">
-                            <a className="nav-link active fw-medium" aria-current="page"  style={{cursor:'pointer',hover:'bg-red'}}>DETAILS</a>
-                            <a className="nav-link fw-medium" href="/activites">ACTIVITES</a>
-                            <a className="nav-link fw-medium" href="/similar activities">SIMILAR ACTIVITIES</a>
+
+                            {/* <button style={styles.button} onClick={() => setActiveTab('DETAILS')}>DETAILS</button> */}
+
+                            <button className="nav-link fw-medium" aria-current="page" onClick={() => setActiveTab('DETAILS')} style={{ cursor: 'pointer', hover: 'bg-red' }}>DETAILS</button>
+
+                            <button className="nav-link fw-medium" onClick={() => setActiveTab('ACTIVITIES')}>ACTIVITIES</button>
+
+                            <button className="nav-link fw-medium" onClick={() => setActiveTab('SIMILAR_ACTIVITIES')}>SIMILAR ACTIVITIES</button>
                         </nav>
-                        <div className="accordion accordion-flush" id="accordionFlushExample">
-                            <div className="accordion-item border" style={{ backgroundColor: 'rgb(240, 248, 255)' }}>
-                                <h2 className="accordion-header">
-                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        Full Description
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                    <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                                </div>
-                            </div>
-                            <div className="accordion-item border" style={{ backgroundColor: 'rgb(240, 248, 255)' }}>
-                                <h2 className="accordion-header">
-                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                        Schedule and Pricing
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                    <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flucsh</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                                </div>
-                            </div>
-                            <div className="accordion-item border" style={{ backgroundColor: 'rgb(240, 248, 255)' }}>
-                                <h2 className="accordion-header">
-                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                        Additional Information
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                    <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                                </div>
-                            </div>
+                        <div >
+                            {renderContent()}
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
+// const styles = {
+//     buttonContainer: {
+//         display: 'flex',
+//         justifyContent: 'center',
+//         margin: '20px 0',
+//     },
+//     button: {
+//         margin: '0 10px',
+//         padding: '10px 20px',
+//         cursor: 'pointer',
+//         backgroundColor: '#007BFF',
+//         color: 'white',
+//         border: 'none',
+//         borderRadius: '5px',
+//         fontSize: '16px',
+//     },
+//     contentContainer: {
+//         padding: '20px',
+//         border: '1px solid #ddd',
+//         borderRadius: '5px',
+//     },
+// };
 
 export default UserDashboard;
