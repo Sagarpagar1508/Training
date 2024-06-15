@@ -1,5 +1,5 @@
 import React from 'react'
-import audioFile from 'C:/Users/Avani/Downloads/new project/Training/src/assets/Fund accounting is a.mp3';
+import audioFile from '../assets/Fund';
 
 const SecondPage = () => {
     return (
