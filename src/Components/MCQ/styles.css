@@ -1,0 +1,25 @@
+.mcq-container {
+    width: 50%;
+    margin: 45px 200px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .options-container {
+    margin: 20px 0;
+  }
+  
+  .option {
+    margin: 10px 0;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.result-container{
+  text-align: center;
+  
+}

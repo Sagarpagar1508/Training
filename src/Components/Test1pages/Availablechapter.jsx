@@ -3,16 +3,16 @@ import React from 'react'
 const Availablechapter = () => {
     return (
         <div className="container-fluid">
-            <div>
+            <div className='m-5'>
                 <h1>
-                    Fund Accounting
+                    Available Module
                 </h1>
             </div>
-            <div className="container-fluid">
-                <div className="row">
+            <div className="container-fluid h-25 ">
+                <div className="row ">
                     <div className="col-4">
                      <div className="card p-3">
-                        <img className='card-img-top' src="src\assets\test2_img.jpg" alt="sagar" />
+                        <img className='card-img-top' src="../src\assets\test3_img.jpg" alt="sagar" />
                         <div className="card-body">
                             <p>Segregation of Resources</p>
                         </div>
@@ -20,15 +20,15 @@ const Availablechapter = () => {
                     </div>
                     <div className="col-4 ">
                     <div className="card p-3">
-                        <img className='card-img-top' src="src\assets\test2_img.jpg" alt="sagar" />
-                        <div className="card-body text-center">
-                            <p>Enhanced Accountability</p>
+                        <img className='card-img-top' src="../src\assets\test3_img.jpg" alt="sagar" />
+                        <div className="card-body text-center ">
+                            <p className=''>Enhanced Accountability</p>
                         </div>
                      </div>
                     </div>
                     <div className="col-4">
                     <div className="card p-3">
-                        <img className='card-img-top' src="src\assets\test2_img.jpg" alt="sagar" />
+                        <img className='card-img-top' src="../src\assets\test3_img.jpg" alt="sagar" />
                         <div className="card-body">
                             <p className='text-center'>Enhanced Accountability</p>
                         </div>

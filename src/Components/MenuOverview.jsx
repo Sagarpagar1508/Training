@@ -24,12 +24,12 @@ const MenuOverview = () => {
               <h1>Menu Overview</h1>
               <p>For the best viewing</p>
             </div>
-            <button onClick={e => handleCancel(e)}><i class="fa-solid fa-xmark fs-1"></i></button>
+            <button onClick={e => handleCancel(e)}><i className="fa-solid fa-xmark fs-1"></i></button>
           </div>
 
           <div className='row border w-50 mt-3'>
             <div className='col-2 border-end p-4' >
-              <i className="fa-solid fa-angle-left fs-4"></i> <i class="fa-solid fa-chevron-right fs-4"></i>
+              <i className="fa-solid fa-angle-left fs-4"></i> <i className="fa-solid fa-chevron-right fs-4"></i>
             </div>
             <div className='col-10'>
               <p className='text-justify'>Course navigation-go to the next or Previous page. When button is in locked stateit will appear faded</p>

@@ -1,14 +1,27 @@
 import React from 'react';
 import { Card, ProgressBar, Button } from 'react-bootstrap';
+import Star from './Star';
 
 import Details from './UserDashboard/Details';
 import Activities from './UserDashboard/Activities';
 import SimilarActivities from './UserDashboard/SimilarActivities';
 import { useState } from 'react';
+import { FaHeart } from 'react-icons/fa';
 
 const UserDashboard = () => {
 
     const [activeTab, setActiveTab] = useState('DETAILS');
+    const [rateCount, setRateCount] = useState(5187)
+    const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
+    const [liked, setLiked] = useState(false);
+
+    const handleLike = () => {
+        if (liked) {
+            setRateCount(rateCount - 1)
+        } else setRateCount(rateCount + 1)
+        setLiked(!liked);
+    };
 
     const renderContent = () => {
         switch (activeTab) {
@@ -32,7 +45,7 @@ const UserDashboard = () => {
         const newWindow = window.open(
             'http://localhost:5173/Test', // URL to open
             '_blank', // Open in a new tab or window
-            'width=1000,height=1000' // Optional specs: width and height of the new window
+            'width=1800,height=900' // Optional specs: width and height of the new window
         );
 
         // Optional: You can add additional functionality here, like focusing the new window
@@ -58,7 +71,29 @@ const UserDashboard = () => {
                         <p>ATTENDED</p>
 
                         <div className='d-flex align-items-center justify-content-between'>
-                            <div>
+
+                            <div className="mr-2 align-items-center">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Star
+                                        key={star}
+                                        filled={star <= (hover || rating)}
+                                        onClick={() => setRating(star)}
+                                        onMouseEnter={() => setHover(star)}
+                                        onMouseLeave={() => setHover(0)}
+                                    />
+                                ))}
+                                &nbsp;
+                                ({rateCount})&nbsp;&nbsp;
+                                <Button
+                                    variant="light"
+                                    onClick={handleLike}
+                                    style={{ border: 'none', background: 'none', padding: 0, marginTop: '-10px' }}
+                                >
+                                    <FaHeart color={liked ? 'red' : 'gray'} size={18} />
+                                </Button>
+                                <p className='text-success p-2'><i className="fa-solid fa-exclamation text-success"></i> Please rate</p>
+                            </div>
+                            {/* <div>
                                 <span className="mr-2">
                                     <i className="fa fa-star text-warning"></i>
                                     <i className="fa fa-star text-warning"></i>
@@ -69,13 +104,13 @@ const UserDashboard = () => {
                                     <i className="fa-regular fa-heart"></i>&nbsp;&nbsp;&nbsp;
                                     <i className="fa-solid fa-share-nodes text-primary" ></i>
                                 </span>
-                                <p><i className="fa-solid fa-exclamation text-danger"></i> Please rate</p>
-                            </div>
+                                <p className='text-danger p-2'><i className="fa-solid fa-exclamation text-danger"></i> Please rate</p>
+                            </div> */}
                             <div className='text-right d-flex gap-3'>
                                 <p>Completion Status</p>
                                 <ProgressBar now={100} label={`${0}%`} className="mt-2 ml-2" style={{ width: '150px' }} />
-                                <Button onClick={openNewWindow} variant="primary" className='text-color-white mt-2 ml-2 mr-2 '>
-                                    <p style={{ color: 'white', textDecoration: 'none' }}>Start</p>
+                                <Button onClick={openNewWindow} variant="primary" className='btn btn-primary  text-light '>
+                                    <p style={{ color: 'white', textDecoration: 'none', margin: 0, padding: 0 }}>Start</p>
                                 </Button>
                             </div>
                         </div>

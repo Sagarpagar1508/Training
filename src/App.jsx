@@ -11,6 +11,13 @@ import TestStart from './Components/TestStart';
 import FirstTest from './Components/FirstTest';
 import SecondPage from './Components/Test1pages/SecondPage';
 import MenuOverview from './Components/MenuOverview';
+import Availablechapter from './Components/Test1pages/Availablechapter';
+import CompleteModal from './Components/CompleteModal';
+import Mcq from './Components/MCQ/Mcq';
+import Second1 from './Components/SecondLink/Second1';
+import Page2 from './Components/SecondLink/Page2';
+
+
 
 
 
@@ -19,12 +26,8 @@ import MenuOverview from './Components/MenuOverview';
 function App() {
   return (
     <>
-      {/* <FundPPT/>
-      <div className="App">
-			<div className="PDF-viewer">
-				<PdfViewerComponent document={'src/assets/pptexamples (1).ppt.pptx'} />
-			</div>
-		</div> */}
+      {/* <CompleteModal/> */}
+
 
       {/* <FirstTest/> */}
       {/* <TestNav/>  */}
@@ -33,7 +36,7 @@ function App() {
       {/* <MenuOverview/> */}
       {/* <SecondPage/> */}
       {/* <MenuOverview/> */}
-
+{/* <Page2/> */}
 
 
       <Router>
@@ -48,6 +51,12 @@ function App() {
             <Route path="test0" element={<FirstTest />} />
             <Route path="second" element={<SecondPage />} />
             <Route path="menuoverview" element={<MenuOverview />} />
+            <Route path="third" element={<CompleteModal />} />
+            <Route path="test1" element={<Second1 />} />
+            <Route path="chapter" element={<Availablechapter />} />
+            <Route path="mcq" element={<Mcq />} />
+           <Route path="page2" element={<Page2/>}/>
+
           </Route>
         </Routes>
       </Router>

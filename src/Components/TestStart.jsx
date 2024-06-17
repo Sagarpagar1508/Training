@@ -33,7 +33,7 @@ const TestStart = () => {
   const cardData = [
     {
       title: 'Introduction to Fund Accounting',
-      image: 'src/assets/test1_img.jfif', // Replace with actual image path
+      image: 'src/assets/images.png', // Replace with actual image path
       status: 'Completed'
     },
     {
@@ -62,9 +62,9 @@ const TestStart = () => {
             <Col key={index} sm={12} md={4} className="mb-3">
               <Card style={{ height: '50%' }} >
                 <Card.Img variant="top" src={card.image} style={{ height: '200px' }} />
-                <Card.Body style={{ backgroundColor: 'black', color: 'white' }}>
+                <Card.Body style={{ backgroundColor: 'black', color: 'white',height:'100px' }}>
                   <Card.Title><button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => handleClick(index)}>{card.title}</button></Card.Title>
-                  <Card.Text>Status: {card.status}</Card.Text>
+                  <Card.Text style={{color:'green'}}>Status: {card.status}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -77,7 +77,7 @@ const TestStart = () => {
                 <Card.Img variant="top" src={card.image} />
                 <Card.Body style={{ backgroundColor: 'black', color: 'white' }}>
                   <Card.Title><button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => secondrowClick(index)}>{card.title}</button></Card.Title>
-                  <Card.Text>Status: {card.status}</Card.Text>
+                  <Card.Text style={{color:'red'}}>Status: {card.status}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>

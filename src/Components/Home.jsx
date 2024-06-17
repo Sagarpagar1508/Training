@@ -9,7 +9,7 @@ function Home() {
         <>
         
                 <div className='' style={Styles.main}>
-                    <div style={{ padding: '20px', border: '2px solid black', boxShadow: '0 7px 30px 0 rgba(0, 0, 0, 0.25)', borderRadius: '5px', height: 'auto' }}  >
+                    <div style={{ padding: '25px', border: '2px solid black', boxShadow: '0 7px 30px 0 rgba(0, 0, 0, 0.25)', borderRadius: '5px', height: 'auto' }}  >
                         <h2>Indroduction to Fund Accounting</h2>
                         <p>Provides a brief overview of the course content, goals, objectives, and often policies.</p>
                         <Link className='Link ' to='/user' style={{ fontWeight: '500' }}>Course Start<GoArrowRight /></Link>
@@ -22,7 +22,7 @@ function Home() {
                     <div style={{ padding: '25px', border: '2px solid black', boxShadow: '0 7px 30px 0 rgba(0, 0, 0, 0.25)', borderRadius: '5px' }}  >
                         <h2>Finacial Statement in fund Accounting</h2>
                         <p>Provides a brief overview of the course content, goals, objectives, and often policies.</p>
-                        <Link className='Link' to='/user' style={{ fontWeight: '500' }}>Course Start<GoArrowRight /></Link>
+                        <Link className='Link' to='/user' style={{ fontWeight: '500'}}>Course Start<GoArrowRight /></Link>
                     </div>
                     {/* <Route path='/te' element={<TestStart />} /> */}
                 </div>
