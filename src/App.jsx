@@ -16,7 +16,8 @@ import CompleteModal from './Components/CompleteModal';
 import Mcq from './Components/MCQ/Mcq';
 import Second1 from './Components/SecondLink/Second1';
 import Page2 from './Components/SecondLink/Page2';
-
+import PdfViewerComponent from './Components/pdfViewer/PdfViewerComponent';
+import Login from './Components/Login/Login';
 
 
 
@@ -26,9 +27,12 @@ import Page2 from './Components/SecondLink/Page2';
 function App() {
   return (
     <>
+    {/* <Login/> */}
+      {/* <h1>hello</h1> */}
+      {/* <PowerPointViewer/> */}
       {/* <CompleteModal/> */}
 
-
+      {/* <PdfViewerComponent /> */}
       {/* <FirstTest/> */}
       {/* <TestNav/>  */}
 
@@ -36,13 +40,14 @@ function App() {
       {/* <MenuOverview/> */}
       {/* <SecondPage/> */}
       {/* <MenuOverview/> */}
-{/* <Page2/> */}
-
+      {/* <Page2/> */}
+      {/* <Login/> */}
 
       <Router>
         <Routes>
+        <Route path="/" element={<Login />} />
           <Route path='/' element={<Navbar />} >
-            <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
             <Route path='user' element={<UserDashboard />} />
           </Route>
 
@@ -55,7 +60,7 @@ function App() {
             <Route path="test1" element={<Second1 />} />
             <Route path="chapter" element={<Availablechapter />} />
             <Route path="mcq" element={<Mcq />} />
-           <Route path="page2" element={<Page2/>}/>
+           <Route path="page2" element={<Page2 />}/>
 
           </Route>
         </Routes>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './styles.css'
+import './styles.css';
 
 const mcqData = [
   {
     question: 'Which of the following is a primary purpose of fund accounting?',
-    options:  ['To maximize profitability', 'To ensure that financial resources ', 'To reduce tax liabilities', 'To simplify financial reporting'],
+    options: ['To maximize profitability', 'To ensure that financial resources', 'To reduce tax liabilities', 'To simplify financial reporting'],
     correctAnswer: 'To ensure that financial resources are used according to legal and administrative requirements'
   },
   {
@@ -33,27 +33,38 @@ const Mcq = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState(Array(mcqData.length).fill(null));
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleOptionChange = (option) => {
     const updatedOptions = [...selectedOptions];
     updatedOptions[currentQuestion] = option;
     setSelectedOptions(updatedOptions);
+    setShowAlert(false);
   };
 
   const handleNext = () => {
-    if (currentQuestion < mcqData.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (selectedOptions[currentQuestion]) {
+      if (currentQuestion < mcqData.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      }
+    } else {
+      setShowAlert(true);
     }
   };
 
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
+      setShowAlert(false);
     }
   };
 
   const handleSubmit = () => {
-    setIsSubmitted(true);
+    if (selectedOptions[currentQuestion]) {
+      setIsSubmitted(true);
+    } else {
+      setShowAlert(true);
+    }
   };
 
   const calculateScore = () => {
@@ -68,70 +79,59 @@ const Mcq = () => {
   if (isSubmitted) {
     const score = calculateScore();
     return (
-      <div className="result-container "style={{marginTop: '170px' }}>
+      <div className="result-container" style={{ marginTop: '170px' }}>
         <h2>Test Completed!</h2>
-        {score > 2 ? <p style={{color: 'green'}}>Your Score: <span > {score} /{mcqData.length}</span> submitted</p>: <p style={{color: 'red'}}>Your Score: <span >{score} /{mcqData.length} </span>Failed</p>}
+        {score > 2 ? (
+          <p style={{ color: 'green' }}>
+            Your Score: <span>{score} / {mcqData.length}</span> submitted
+          </p>
+        ) : (
+          <p style={{ color: 'red' }}>
+            Your Score: <span>{score} / {mcqData.length}</span> Failed
+          </p>
+        )}
       </div>
     );
   }
-return (
-  <div className="container-fluid ">
-    <div className="mcq-container  " style={{boxShadow:'5pxpx 10px 5px 10px #EEEEE'}}>
-      <h4>Question {currentQuestion + 1}</h4>
-      <p className='fw-bold'>{mcqData[currentQuestion].question}</p>
-      <div className="options-container">
-        {mcqData[currentQuestion].options.map((option, index) => (
-          <div key={index} className="option">
-            <input
-              type="radio"
-              name={`question-${currentQuestion}`}
-              value={option}
-              checked={selectedOptions[currentQuestion] === option}
-              onChange={() => handleOptionChange(option)}
-            />
-            <label>&nbsp;{option}</label>
-          </div>
-        ))}
-      </div>
-      <div className="navigation-buttons">
-        <button className='btn btn-warning' onClick={handlePrevious} disabled={currentQuestion === 0}>
-          Previous
-        </button>
-        {currentQuestion < mcqData.length - 1 ? (
-          <button className='btn btn-info' onClick={handleNext}>
-            Next
-          </button>
-        ) : (
-          <button className='btn btn-success' onClick={handleSubmit}>
-            Submit
-          </button>
-        )}
-      </div>
-    </div>
-    </div>
 
+  return (
+    <div className="container-fluid">
+      <div className="mcq-container" style={{ boxShadow: '5px 10px 5px 10px #EEEEE' }}>
+        <h4>Question {currentQuestion + 1}</h4>
+        <p className='fw-bold'>{mcqData[currentQuestion].question}</p>
+        <div className="options-container">
+          {mcqData[currentQuestion].options.map((option, index) => (
+            <div key={index} className="option">
+              <input
+                required
+                type="radio"
+                name={`question-${currentQuestion}`}
+                value={option}
+                checked={selectedOptions[currentQuestion] === option}
+                onChange={() => handleOptionChange(option)}
+              />
+              <label>&nbsp;{option}</label>
+            </div>
+          ))}
+        </div>
+        {showAlert && <p style={{ color: 'red' }}>Please select an option before proceeding.</p>}
+        <div className="navigation-buttons">
+          <button className='btn btn-warning' onClick={handlePrevious} disabled={currentQuestion === 0}>
+            Previous
+          </button>
+          {currentQuestion < mcqData.length - 1 ? (
+            <button className='btn btn-info' onClick={handleNext}>
+              Next
+            </button>
+          ) : (
+            <button className='btn btn-success' onClick={handleSubmit}>
+              Submit
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 
-const styles = {
-  mcqContainer: {
-    width: '50%',
-    margin: '0 auto',
-    padding: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '10px',
-    backgroundColor: '#f9f9f9'
-  },
-  optionsContainer: {
-    margin: '20px 0'
-  },
-  option: {
-    margin: '10px 0'
-  },
-  navigationButtons: {
-    display: 'flex',
-    justifyContent: 'space-between'
-  }
-};
-
-export default Mcq;
+export default Mcq;

@@ -6,7 +6,7 @@ const Similaractivities = () => {
     <div className="accordion-item border" style={{ backgroundColor: 'rgb(240, 248, 255)' }}>
         <h2 className="accordion-header">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                sagar
+                Fund Accounting
             </button>
         </h2>
         <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">

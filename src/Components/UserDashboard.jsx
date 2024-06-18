@@ -108,7 +108,7 @@ const UserDashboard = () => {
                             </div> */}
                             <div className='text-right d-flex gap-3'>
                                 <p>Completion Status</p>
-                                <ProgressBar now={100} label={`${0}%`} className="mt-2 ml-2" style={{ width: '150px' }} />
+                                <ProgressBar now={100} label={`${1}%`} className="mt-2 ml-2" style={{ width: '150px' }} />
                                 <Button onClick={openNewWindow} variant="primary" className='btn btn-primary  text-light '>
                                     <p style={{ color: 'white', textDecoration: 'none', margin: 0, padding: 0 }}>Start</p>
                                 </Button>

@@ -22,7 +22,7 @@ const Second1 = () => {
                         </div>
                         <div className="col-6 " style={{ marginLeft: '90px' }}>
                             <div className='' style={{ width: '535px', marginTop: '100px' }}>
-                                <p><h6>Fund accounting:</h6>is a specialized system used primarily by non-profit organizations, governmental entities, and similar institutions to manage and track resources whose use is restricted by donors, grantors, or governing agencies.This method provides a clear and transparent way to demonstrate how financial resources are allocated and expended, aligning with the organization's mission and legal requirements.</p>
+                                <h6>Fund accounting:</h6><p>is a specialized system used primarily by non-profit organizations, governmental entities, and similar institutions to manage and track resources whose use is restricted by donors, grantors, or governing agencies.This method provides a clear and transparent way to demonstrate how financial resources are allocated and expended, aligning with the organization's mission and legal requirements.</p>
                             </div>
 
                             <div className='text-light my-5' style={{ backgroundColor: 'rgb(0, 171, 240)', boxShadow: '3px 10px 10px 3px lightblue', height: '350px', borderRadius: '20px', width: '300px', marginLeft: '90px' }}>
@@ -41,7 +41,7 @@ const Second1 = () => {
                 <div className='w-25 text-end fs-1' style={{ position: 'fixed', bottom: '20px', right: '10px' }}>
                     <Link className='Link' onClick={e => handleClick(e)}><FaArrowLeft size={24} className="mx-2 " /></Link>
                     &nbsp;&nbsp;
-                    < Link className='Link' to='/Test/test1/page2' ><FaArrowRight size={24} className="mx-2" /></Link>
+                    <Link className='Link' to='/Test/test1/page2' ><FaArrowRight size={24} className="mx-2" /></Link>
                 </div>
             </div>
 

@@ -4,29 +4,31 @@ import { Card, Row, Col, Container } from 'react-bootstrap';
 const TestStart = () => {
 
   const handleClick = (index) => {
-    const newWindow = window.open(
-      `http://localhost:5173/Test/test${index}`, // URL to open
-      '_self', // Open in a new tab or window
-      'width=1000,height=1000' // Optional specs: width and height of the new window
-    );
+    let url;
+    switch (index) {
+      case 0:
+        url = 'http://localhost:5173/Test/test0';
+        break;
+      case 1:
+        url = 'http://localhost:5173/Test/test1';
+        break;
+      case 2:
+        url = 'http://localhost:5173/Test/test2';
+        break;
+      case 3:
+        url = 'http://localhost:5173/Test/test3';
+        break;
+      default:
+        url = 'http://localhost:5173/Test';
+        break;
+    }
 
-    // Optional: You can add additional functionality here, like focusing the new window
+    const newWindow = window.open(url, '_self', 'width=1000,height=1000');
     if (newWindow) {
       newWindow.focus();
     }
-  }
-  const secondrowClick = (e) => {
-    const newWindow = window.open(
-      `http://localhost:5173/Test/${e}`, // URL to open
-      '_self', // Open in a new tab or window
-      'width=1000,height=1000' // Optional specs: width and height of the new window
-    );
-
-    // Optional: You can add additional functionality here, like focusing the new window
-    if (newWindow) {
-      newWindow.focus();
-    }
-  }
+  };
+  
 
 
 
@@ -76,7 +78,7 @@ const TestStart = () => {
               <Card>
                 <Card.Img variant="top" src={card.image} />
                 <Card.Body style={{ backgroundColor: 'black', color: 'white' }}>
-                  <Card.Title><button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={e => secondrowClick(index)}>{card.title}</button></Card.Title>
+                  <Card.Title><button className='bg-success bg-opacity-10 shadow-none border-0 text-light' onClick={() => handleClick(index + 3)}>{card.title}</button></Card.Title>
                   <Card.Text style={{color:'red'}}>Status: {card.status}</Card.Text>
                 </Card.Body>
               </Card>

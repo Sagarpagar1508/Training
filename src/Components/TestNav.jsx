@@ -104,7 +104,7 @@ const TestNav = () => {
         <div className="modal-dialog modal-fullscreen-xxl-down">
           <div className="modal-content">
 
-            <div class="modal-body">
+            <div className="modal-body">
 
               <div className="container-fluid text-light" style={{
                 backgroundImage: `url(${backgroundImage})`,
